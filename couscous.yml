@@ -1,0 +1,24 @@
+template:
+    url: https://github.com/perinatologie/perinatologie-couscous-template.git
+
+github:
+    user: perinatologie
+    repo: architectuur-doc
+
+title: Architectuur
+subTitle: Technische details
+
+# The left menu bar
+menu:
+    items:
+        home:
+            text: Inleiding
+            relativeUrl: ./
+        register:
+            text: Registreren
+        resources:
+            text: Resources
+        search:
+            text: Zoeken
+        tokens:
+            text: Tokens
