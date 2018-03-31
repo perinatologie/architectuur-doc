@@ -14,6 +14,8 @@ menu:
         home:
             text: Inleiding
             relativeUrl: ./
+        accounts:
+            text: Accounts
         register:
             text: Registreren
         resources:
