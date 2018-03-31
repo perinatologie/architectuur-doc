@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Architectuur</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/monokai-sublime.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand navbar-right hidden-xs" href="https://doc.perinatologie.nl">
+                <img src="https://www.perinatologie.nl/assets/img/perinatologie.nl.png" style="width: 40px; float: left; margin-right: 5px;" />
+                doc.perinatologie.nl
+            </a>
+            <a class="navbar-brand" href="./">
+                Architectuur
+                <small class="hidden-xs hidden-sm">
+                    Technische details
+                </small>
+            </a>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                                                                                                        <a href="./">
+                                                                                                                    Inleiding
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="register.html">
+                                                                                                                    Registreren
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="resources.html">
+                                                                                                                    Resources
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="search.html">
+                                                                                                                    Zoeken
+                                    </a>
+                                </li>
+                                                            <li class="active">
+                                                                                                                        <a href="tokens.html">
+                                                                                                                    Tokens
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                   <h2 id="tokens">Tokens</h2>
+<p>Wanneer een account de PeriHub bevraagt dan zijn de zoekresultaten voorzien van een Token (JWT - JSON Web Token). Dit token kan de bevrager gebruiken om de bron-data bij de Provider van het Resource op te vragen.</p>
+<p>Het Token is cryptografisch ondertekend met de private key van de Hub (middels RS512).</p>
+<p>Door het Token door te geven aan de provider kan de provider mbv de public key van de Hub valideren dat het token daadwerkelijk is uitgegeven door de hub.</p>
+<p>Het token bevat een beperkte geldigheidsduur waardoor de bron-data alleen vlak na bevraging kan worden opgehaald. Verder bevat het token enkele “claims” waardoor de provider kan controleren om welke data het specifiek gaat. Zo kan een token voor 1 resource niet gebruikt worden om andere resources bij dezelfde provider op te halen.</p>
+<p>Meer informatie mbt JWT:</p>
+<ul>
+<li><a href="https://jwt.io"><a href="https://jwt.io">https://jwt.io</a></a></li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    <a href="https://www.perinatologie.nl">perinatologie.nl</a>
+                </p>
+            </div>
+
+                            <a class="github-link" href="https://github.com/perinatologie/architectuur-doc">
+                    <i class="fa fa-github"></i>
+                    Dit document is open-source, bijdragen kan via github.
+                </a>
+            
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

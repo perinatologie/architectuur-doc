@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Architectuur</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/monokai-sublime.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand navbar-right hidden-xs" href="https://doc.perinatologie.nl">
+                <img src="https://www.perinatologie.nl/assets/img/perinatologie.nl.png" style="width: 40px; float: left; margin-right: 5px;" />
+                doc.perinatologie.nl
+            </a>
+            <a class="navbar-brand" href="./">
+                Architectuur
+                <small class="hidden-xs hidden-sm">
+                    Technische details
+                </small>
+            </a>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                                                                                                        <a href="./">
+                                                                                                                    Inleiding
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="register.html">
+                                                                                                                    Registreren
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="resources.html">
+                                                                                                                    Resources
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="search.html">
+                                                                                                                    Zoeken
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="tokens.html">
+                                                                                                                    Tokens
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                   <h2 id="accounts">Accounts</h2>
+<p>Alle interactie met de PeriHub verloopt via “Accounts”. Een account kan worden aangevraagd via de website:</p>
+<ul>
+<li><a href="https://www.perinatologie.nl"><a href="https://www.perinatologie.nl">https://www.perinatologie.nl</a></a> (rechtsbovenin “aanmelden”)</li>
+</ul>
+<h2 id="account-typen-user-organization-api-key">Account Typen: User, Organization, API Key</h2>
+<p>Er zijn 3 typen Hub Accounts:</p>
+<ul>
+<li>
+<p><strong>User</strong>: Een User Account is een persoonlijk account voor bijvoorbeeld een zorgverlener, client of medewerker. Met een User Account kan bijvboorbeeld worden ingelogged op bepaalde diensten van Perinatologie.nl</p>
+</li>
+<li>
+<p><strong>Organization</strong>: Een Organization Account betreft een Praktijk, Ziekenhuis, Kraamzorg bureau, of andere typen organisaties. Een organisatie kan niet direct inloggen, maar is altijd gekoppeld aan een of meerdere User Accounts. Een organisatie kan dus meerdere user accounts bevatten, en 1 user kan deel uitmaken van meerdere organisaties. Elk van deze “Users” heeft toegang tot resources (zoals bv dossiers) die gedeeld zijn met de organisatie.</p>
+</li>
+<li><strong>API Key</strong>: Een API Key Account is nodig voor een applicatie om gebruik te maken van de Hub APIs. Een API Key is, net als een User Account, gekoppeld aan een Organisatie Account. Middels het API Key Account kan een applicatie inzage krijgen in de Resources die gedeeld zijn met de betreffende Organisatie.</li>
+</ul>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    <a href="https://www.perinatologie.nl">perinatologie.nl</a>
+                </p>
+            </div>
+
+                            <a class="github-link" href="https://github.com/perinatologie/architectuur-doc">
+                    <i class="fa fa-github"></i>
+                    Dit document is open-source, bijdragen kan via github.
+                </a>
+            
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

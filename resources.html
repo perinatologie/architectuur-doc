@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Architectuur</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/monokai-sublime.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand navbar-right hidden-xs" href="https://doc.perinatologie.nl">
+                <img src="https://www.perinatologie.nl/assets/img/perinatologie.nl.png" style="width: 40px; float: left; margin-right: 5px;" />
+                doc.perinatologie.nl
+            </a>
+            <a class="navbar-brand" href="./">
+                Architectuur
+                <small class="hidden-xs hidden-sm">
+                    Technische details
+                </small>
+            </a>
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                                                                                                        <a href="./">
+                                                                                                                    Inleiding
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="register.html">
+                                                                                                                    Registreren
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="resources.html">
+                                                                                                                    Resources
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="search.html">
+                                                                                                                    Zoeken
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                                                                                                        <a href="tokens.html">
+                                                                                                                    Tokens
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                   <h2 id="resources">Resources</h2>
+<p>Op de Hub kunnen accounts (Organizations en Users) “Resources” aanmelden op de Hub. Vervolgens kunnen deze resources worden gedeeld met andere Hub Accounts.</p>
+<h2 id="resource-types">Resource types</h2>
+<p>Elke Resource heeft een Resource Type. Het Type geeft aan wat voor soort Resource het betreft. Aanmelders zijn vrij te bepalen welke typen ze aanmelden, maar samenwerkende partijen kunnen afspraken maken over welke typen ze ondersteunen.
+Resource typen: perinatologie/dossier en hub/dossier
+Het eerste Resource Type waarvoor deze afspraken zijn gemaakt via het Perinatologie.nl platform is het type “perinatologie/dossier”, wat een zwangerschaps dossier beschrijft. De opvolger hiervan is het type “hub/dossier”. Deze is met betrekking tot resource eigenschappen identiek.</p>
+<p>Deze resources bevatten de volgende eigenschappen:</p>
+<p>Zwangerschap gerelateerde elementen:</p>
+<ul>
+<li><strong>reference</strong>: Unieke referentie voor een zwangerschap van 1 client</li>
+<li><strong>gravida</strong>: De graviditeit van de zwangerschap</li>
+<li><strong>para</strong>: De pariteit van de zwangerschap</li>
+<li><strong>start_at</strong>: intake datum bij de provider</li>
+<li><strong>end_at</strong>: eind datum indien van toepassing</li>
+<li><strong>edd</strong>: Aterme datum</li>
+</ul>
+<p>Client gerelateerde elementen:</p>
+<ul>
+<li><strong>client_displayname</strong>: Volledige client naam</li>
+<li><strong>client_bsn</strong>: Burger Service Nummer van de client.</li>
+<li><strong>client_birthdate</strong>: Geboortedatum van de client</li>
+</ul>
+<p>Automatische elementen:</p>
+<ul>
+<li><strong>registered_at</strong>: Aanmeld datum op de hub</li>
+<li><strong>provider_accountname</strong>: account naam van de provider</li>
+</ul>
+<p></p>
+<h2 id="resource-shares">Resource shares</h2>
+<p>Een aangemelde Resource kan via de Hub gedeeld worden met andere Hub Accounts.</p>
+<p>Enkele voorbeelden:</p>
+<p>Een verloskundige praktijk (organization account) kan een dossier (resource type peri/dossier) delen met een ziekenhuis (organization account).
+Een ziekenhuis (organization account) kan een dossier (resource type peri/dossier) delen met verschillende verloskundige praktijken (organization accounts) in de regio.
+Een verloskundige praktijk (organization account) kan een dossier delen met een client (user account).
+Een client (user account) kan haar eigen dossier delen met een huisartsenpraktijk (organization account).
+Een verloskundige praktijk (organization account) kan een dossier delen met een kraamzorg buro (organization account).
+… etc</p>
+<p>Een Resource kan gedeeld worden met een of meerdere andere accounts. Hetzelfde dossier kan dus zowel gedeeld worden met bijvoorbeeld een ziekenhuis, een kraamzorg buro als een client.</p>
+<p>Een resource heeft altijd 1 Provider. De Provider is het account welke de resource heeft aangemeld op de hub, en is daarmee eigenaar van het dossier. Andere accounts waarmee de resource is gedeeld kunnen de data van deze resource opvragen bij de Provider mbv een “token” welke wordt uitgegeven door de Hub.</p>
+<p>Een Provider kan Resources delen door tijdens de aanmelding een lijst van Identifiers en Identifier Types mee te geven zodat de Hub kan achterhalen om welke accounts het gaat. Geldige Identifier Types zijn bijvoorbeeld accountNames, AGB codes of accountUuids.</p>
+<h2 id="resource-providers">Resource providers:</h2>
+<p>Organisaties die resources op de PeriHub aanmelden zijn de Provider van deze resource. Tijdens aanmelding geven Providers slechts een beperkte hoeveelheid ‘meta-data’ door aan de Hub (zie Resource Types). De PeriHub bevat niet de daadwerkelijke bron-data van een bepaalde resource, alleen de data die van toepassing is op het Resource Type.</p>
+<p>Om de bron-data te verkrijgen bevraagt de aanvrager eerst de Hub. De Hub geeft de meta-data van de zoekresultaten terug zoals deze bekend zijn in de hub. Daarnaast bevat het zoekresultaat informatie die de bevrager kan gebruiken om direct bij de Provider van het Resource de bron-data op te vragen.</p>
+<p>De Hub bevat op deze manier nooit de volledige informatie, en de bevrager krijgt altijd de meest actuele data terug precies zoals deze op dat moment is vastgelegd bij de Provider.</p>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    <a href="https://www.perinatologie.nl">perinatologie.nl</a>
+                </p>
+            </div>
+
+                            <a class="github-link" href="https://github.com/perinatologie/architectuur-doc">
+                    <i class="fa fa-github"></i>
+                    Dit document is open-source, bijdragen kan via github.
+                </a>
+            
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>
